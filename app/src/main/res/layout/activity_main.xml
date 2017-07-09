@@ -17,6 +17,12 @@
         android:layout_height="wrap_content"
         android:text="버튼 1호"/>
 
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="버튼 2-코드로 뷰만들기"/>
+
 
 
 </LinearLayout>
