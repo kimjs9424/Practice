@@ -23,6 +23,12 @@
         android:layout_height="wrap_content"
         android:text="버튼 2-코드로 뷰만들기"/>
 
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인 - 쉐어드프리퍼런스"/>
+
 
 
 </LinearLayout>

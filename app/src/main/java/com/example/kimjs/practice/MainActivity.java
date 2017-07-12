@@ -1,5 +1,6 @@
 package com.example.kimjs.practice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btn1 = (Button) findViewById(R.id.btn1);
         btn1.setOnClickListener(this);
 
+        findViewById(R.id.btn2).setOnClickListener(this);
+        findViewById(R.id.btn_login).setOnClickListener(this);
     }
 
     @Override
@@ -58,8 +61,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "버튼 1 클릭됨", Toast.LENGTH_SHORT).show();
                 break;
             }
-
+            case R.id.btn2 : {
+                Intent intent = new Intent(this, SubActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case  R.id.btn_login : {
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                break;
+            }
         }
-
     }
 }

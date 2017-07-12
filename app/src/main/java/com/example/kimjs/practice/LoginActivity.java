@@ -1,0 +1,67 @@
+package com.example.kimjs.practice;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private EditText etLoginId;
+    private EditText etPassword;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        etLoginId = (EditText) findViewById(R.id.et_login_id);
+        etPassword = (EditText) findViewById(R.id.et_password);
+
+        findViewById(R.id.btn_login).setOnClickListener(this);
+
+        SharedPreferences sp = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
+        String loginId = sp.getString("loginId", null);
+        if(loginId != null) {
+            etLoginId.setText(loginId);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_login : {
+
+                String loginId = etLoginId.getText().toString();
+                String password = etPassword.getText().toString();
+
+                if(loginId.equals("jason") && password.equals("1234")) {
+                    Toast.makeText(this,"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
+
+                    SharedPreferences sp
+                            = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("loginId", loginId);
+                    editor.commit();
+
+                    finish();
+
+                } else {
+
+                    Toast.makeText(this, "입력 정보가 다릅니다.", Toast.LENGTH_SHORT).show();
+
+                    SharedPreferences sp
+                            = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.remove("loginId");
+                    editor.commit();
+
+                }
+                break;
+            }
+        }
+    }
+}
