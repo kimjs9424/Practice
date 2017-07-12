@@ -29,6 +29,12 @@
         android:layout_height="wrap_content"
         android:text="로그인 - 쉐어드프리퍼런스"/>
 
+    <Button
+        android:id="@+id/btn_simple_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="단순 리스트"/>
+
 
 
 </LinearLayout>

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btn2).setOnClickListener(this);
         findViewById(R.id.btn_login).setOnClickListener(this);
+        findViewById(R.id.btn_simple_list).setOnClickListener(this);
     }
 
     @Override
@@ -68,6 +69,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             case  R.id.btn_login : {
                 Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_simple_list : {
+                Intent intent = new Intent(this, SimpleListActivity.class);
                 startActivity(intent);
                 break;
             }
